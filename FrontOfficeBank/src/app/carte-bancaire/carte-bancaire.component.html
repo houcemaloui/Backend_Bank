@@ -1,0 +1,72 @@
+<div class="container">
+    <h2>💳 Gestion des Cartes Bancaires</h2>
+  
+    <!-- Bouton pour afficher/masquer le formulaire -->
+    <button (click)="toggleForm()" class="btn-toggle">
+      <i [class]="showForm ? 'fas fa-times' : 'fas fa-plus'"></i>
+      {{ showForm ? 'Fermer' : 'Ajouter une carte' }}
+    </button>
+  
+    <!-- Formulaire d'ajout -->
+    <form *ngIf="showForm" [formGroup]="carteForm" (ngSubmit)="addCarte()" class="card-form">
+        <label><i class="fas fa-credit-card"></i> Type de carte :</label>
+        <select formControlName="typeCarte" required>
+          <option value="" disabled selected>Choisir un type</option>
+          <option value="Épargne">Épargne</option>
+          <option value="Courant">Courant</option>
+        </select>
+        
+      <label><i class="fas fa-calendar-alt"></i> Date d'expiration :</label>
+      <input type="date" formControlName="dateExpiration" required>
+  
+      <label><i class="fas fa-exchange-alt"></i> Statut :</label>
+      <select formControlName="statut">
+        <option value="Active">✅ Active</option>
+        <option value="Expirée">❌ Expirée</option>
+        <option value="En cours">⏳ En cours</option>
+      </select>
+  
+      <label><i class="fas fa-university"></i> Numero du compte :</label>
+<select formControlName="idCompte" required>
+  <option *ngFor="let compte of comptes" [value]="compte.idCompte">{{ compte.numCompte }}</option>
+</select>
+
+      <button type="submit" [disabled]="carteForm.invalid">
+        <i class="fas fa-check"></i> Ajouter
+      </button>
+    </form>
+  
+    <!-- Tableau des cartes bancaires -->
+    <table>
+      <thead>
+        <tr>
+          <th>Numero Carte</th>
+          <th><i class="fas fa-credit-card"></i> Type</th>
+          <th><i class="fas fa-calendar-alt"></i> Expiration</th>
+          <th><i class="fas fa-info-circle"></i> Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let carte of cartes">
+          <td>{{ carte.numCarte }}</td>
+          <td>{{ carte.typeCarte }}</td>
+          <td>{{ carte.dateExpiration }}</td>
+          <td>
+           
+                <i [ngClass]="getStatusIcon(carte.statut)" [style.color]="getStatusColor(carte.statut)"></i>
+                <span [style.color]="getStatusColor(carte.statut)">{{ carte.statut }}</span>
+              
+          </td>
+          <td>
+            <button class="btn-delete" *ngIf="carte.idCarte !== undefined" (click)="deleteCarte(carte.idCarte!)">
+                <i class="fas fa-trash"></i> Supprimer
+              </button>
+              
+              
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,0 +1,24 @@
+.table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  

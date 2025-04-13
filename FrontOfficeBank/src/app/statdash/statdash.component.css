@@ -1,0 +1,75 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f7fa;  /* Light background for the whole dashboard */
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;  /* Reduced padding */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 180px; /* Fixed height for the card */
+  }
+  
+  .card h3 {
+    margin: 10px 0;
+    font-size: 1.1em;  /* Reduced font size */
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 1.4em;  /* Reduced font size */
+    color: #555;
+  }
+  
+  .card-icon {
+    font-size: 2.5em;  /* Reduced icon size */
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    margin-bottom: 10px;  /* Reduced margin */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;  /* Reduced width */
+    height: 60px;  /* Reduced height */
+  }
+  
+  .bg-primary {
+    background-color: #007bff;
+  }
+  
+  .bg-success {
+    background-color: #28a745;
+  }
+  
+  .bg-warning {
+    background-color: #ffc107;
+  }
+  
+  .bg-danger {
+    background-color: #dc3545;
+  }
+  
+  .chart-container {
+    max-width: 60%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
